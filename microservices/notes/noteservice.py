@@ -1,13 +1,12 @@
 import sys
 
-import jwt
 from nameko.rpc import rpc
 sys.path.insert(0,'/home/admin1/PycharmProjects/Microservices')
 
 from microservices.notes.models.db import DataManagement
 
 
-class Note(object):
+class Note():
     name = "note_service"
 
     @rpc
@@ -15,7 +14,7 @@ class Note(object):
         print(data)
         db_obj =DataManagement()
         json_keys = list(data.keys())
-        if len(json_keys) == 8:
+        if len(json_keys) == 7:
                 db_obj.create_entry(data)
                 response = {'success': True, 'data': [], 'message': "Entry Create Successfully"}
                 return response
@@ -28,7 +27,7 @@ class Note(object):
         db_obj = DataManagement()
 
         json_keys = list(data.keys())
-        if len(json_keys) == 2:
+        if len(json_keys) == 1:
             db_obj.delete_entry(data)
             response = {'success': True, 'data': [], 'message': "Entry Delete Successfully"}
             return response
@@ -54,7 +53,7 @@ class Note(object):
         db_obj = DataManagement()
         json_keys = list(data.keys())
 
-        if len(json_keys) == 8:
+        if len(json_keys) == 7:
             db_obj.update_entry(data)
             response = {'success': True, 'data': [], 'message': "data updated successfully"}
             return response
@@ -78,7 +77,7 @@ class Note(object):
     def read_note(self, data):
         db_obj = DataManagement()
         json_keys = list(data.keys())
-        if len(json_keys) == 2:
+        if len(json_keys) == 1:
             db_obj.read_entry(data)
             response = {'success': True, 'data': [], 'message': "data read successfully"}
             return response

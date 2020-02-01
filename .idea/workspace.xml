@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d313b991-072f-46b8-a06d-eac0240847eb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/gateway/auth/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/auth/login_authentication.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/notes/noteservice.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/notes/noteservice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/users/models/datamanagement.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/users/models/datamanagement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/users/userservice.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/users/userservice.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +35,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FundooApp" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/microservices/notes" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/microservices/notes" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gateway" />
       <recent name="$PROJECT_DIR$/microservices/models" />
       <recent name="$PROJECT_DIR$/microservices/vendor" />
     </key>

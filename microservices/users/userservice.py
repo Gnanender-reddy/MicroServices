@@ -8,9 +8,9 @@ from nameko.rpc import rpc
 
 sys.path.insert(0,'/home/admin1/PycharmProjects/Microservices')
 from microservices.users.models.datamanagement import Query
-from microservices.users.config.redis_connection import RedisService
 
-class User(object):  # This class is used to handle a services of user
+
+class User(object):
     name = "user_service"
 
     @rpc
@@ -22,7 +22,7 @@ class User(object):  # This class is used to handle a services of user
             id, email = obj.read_email(email=email)
             if id:
                 payload = {'id': id}
-                # 'exp': datetime.utcnow() + timedelta(seconds=JWT_EXP_DELTA_SECONDS)}
+
                 encoded_token = jwt.encode(payload, 'secret', 'HS256').decode('utf-8')
                 print(id, encoded_token)
                 obj.set(id,encoded_token)
@@ -77,6 +77,7 @@ class User(object):  # This class is used to handle a services of user
     @rpc
     def forget_password(self, data):
         obj = Query()
+
         obj.send_mail(data['email'])
         response = {'success': False, 'data': [], 'message': "Message sent Successfully"}
         return response
