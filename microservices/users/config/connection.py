@@ -13,7 +13,6 @@ def singleton(myClass):
         if myClass not in instances:
             instances[myClass] = myClass(*args, **kwargs)
         return instances[myClass]
-
     return get_instance
 
 @singleton
@@ -38,14 +37,14 @@ class Connection:
             )
         return r
 
-    def smtp_conn(self):
-        server = os.getenv("SMTP_EXCHANGE_SERVER")
-        port = os.getenv("SMTP_EXCHANGE_PORT")
-        s = smtplib.SMTP(server, port)
-        s.starttls()  # start TLS for security
-        s.login(os.getenv("SMTP_EXCHANGE_USER_LOGIN"),
-                os.getenv("SMTP_EXCHANGE_USER_PASSWORD"))  # Authentication and login
-        return s
+    # def smtp_conn(self):
+    #     server = os.getenv("SMTP_EXCHANGE_SERVER")
+    #     port = os.getenv("SMTP_EXCHANGE_PORT")
+    #     s = smtplib.SMTP(server, port)
+    #     s.starttls()  # start TLS for security
+    #     s.login(os.getenv("SMTP_EXCHANGE_USER_LOGIN"),
+    #             os.getenv("SMTP_EXCHANGE_USER_PASSWORD"))  # Authentication and login
+    #     return s
 
     def run_query(self, query):
         self.mycursor.execute(query)

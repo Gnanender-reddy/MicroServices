@@ -1,14 +1,14 @@
+
+
 import sys
-
-import jwt
-
-from nameko.rpc import rpc
-
-
 
 sys.path.insert(0,'/home/admin1/PycharmProjects/Microservices')
 from microservices.users.models.datamanagement import Query
 
+
+import jwt
+
+from nameko.rpc import rpc
 
 class User(object):
     name = "user_service"
@@ -17,7 +17,7 @@ class User(object):
     def user_login(self, data):
         obj = Query()
         email = data['email']
-        # responce = {'success': True, 'data': [], 'message': "", 'data': ''}
+
         if obj.checking_email(email):
             id, email = obj.read_email(email=email)
             if id:
@@ -27,31 +27,15 @@ class User(object):
                 print(id, encoded_token)
                 obj.set(id,encoded_token)
                 print(obj.get(id), '------------->r.get')
-                # redis_obj = RedisService()
-                # redis_obj.set(id, encoded_token)
-                # print(redis_obj.get(id), '------------->r.get')
+
                 response = {'success': True, 'data': [], 'message': "Login Successful","token":encoded_token}
-                # responce.update({'success': True, 'data': [], 'message': "Successfully login", "token": encoded_token})
+
+
                 return response
         else:
             response = {'success': False, 'data': [], 'message': "Email not in valid format"}
-            # res = response(message="Login unsuccessfull")
+
             return response
-        # encoded_jwt = jwt.encode({'some': data}, 'secret', algorithm='HS256').decode("UTF-8")
-        # if obj.email_validate(data['email']):
-        #     result = obj.get_cache(encoded_jwt)
-        #     print(data)
-        #     if result:
-        #         payload = {'id': id,}
-        #         encoded_token = jwt.encode(payload, 'secret', 'HS256').decode('utf-8')
-        #         response = {'success': True, 'data': [], 'message': "Login Successful"}
-        #         return response
-        #     else:
-        #         response = {'success': False, 'data': [], 'message': "Not a Register User"}
-        #         return response
-        # else:
-        #     response = {'success': False, 'data': [], 'message': "Email not in valid format"}
-        #     return response
 
     @rpc
     def user_register(self, data):
@@ -74,13 +58,13 @@ class User(object):
                                                                  "password not match"}
             return response
 
-    @rpc
-    def forget_password(self, data):
-        obj = Query()
-
-        obj.send_mail(data['email'])
-        response = {'success': False, 'data': [], 'message': "Message sent Successfully"}
-        return response
+    # @rpc
+    # def forget_password(self, data):
+    #     obj = Query()
+    #
+    #     # obj.send_mail(data['email'])
+    #     response = {'success': False, 'data': [], 'message': "Message sent Successfully"}
+    #     return response
         # encoded_jwt = jwt.encode({'some': data}, 'secret', algorithm='HS256').decode("UTF-8")
         # if obj.get_cache(encoded_jwt):
         #     response = {'success': False, 'data': [], 'message': "Not a Register User"}

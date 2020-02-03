@@ -1,7 +1,10 @@
+import sys
+
+sys.path.insert(0,'/home/admin1/PycharmProjects/Microservices')
 import jwt
-# from view.response import Response
-# from config.redis_connection import RedisService
 from werkzeug.wrappers import Response
+
+from microservices.users.models.datamanagement import Query
 
 
 def response(success=False, message='something went wrong', data=[]):
@@ -15,16 +18,12 @@ def is_authenticated(method):
         try:
             print(request.path, type(request.path))
             if request.path in ['/api/note']:
-
                 token = request.headers['token']
-                print(token)
                 payload = jwt.decode(token, "secret", algorithms='HS256')
-                print(payload)
                 id_key = payload['id']
-                print(id_key)
-                # redis_obj = RedisService()
-                # token = redis_obj.get(id_key)
-                print(token, '------->token====..........>')
+                obj=Query()
+                tokenn = obj.get(id_key)
+                print(tokenn)
                 if token is None:
                     raise ValueError("You Need To Login First")
                 return method(self,request)
@@ -43,5 +42,4 @@ def is_authenticated(method):
                 res = response(message="InvalidTokenError")
                 # Response(self).jsonResponse(status=404, data=res)
                 Response(res)
-
     return authenticate_user

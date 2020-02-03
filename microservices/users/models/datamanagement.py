@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 import jwt
 from nameko.rpc import rpc
 from microservices.users.config.connection import Connection
-from microservices.users.vendor.smtp import smtp
+# from microservices.users.vendor.smtp import smtp
 
 
 class Query:
@@ -16,7 +16,7 @@ class Query:
     def __init__(self):
         self.c = Connection()
         self.r = self.c.redis_conn()
-        self.s = self.c.smtp_conn()
+        # self.s = self.c.smtp_conn()
 
     @rpc
     def registration(self, data):
@@ -70,15 +70,15 @@ class Query:
         self.c.execute(query)
         # self.mydbobj.execute(query)
 
-    @rpc
-    def send_mail(self, email):
-        encoded_jwt = jwt.encode({'email': email}, 'secret', algorithm='HS256').decode("UTF-8")
-        data = f"http://localhost:9090/forget/?new={encoded_jwt}"
-        # s=smtp()
-        # s.send_mail(email,data)
-        msg = MIMEText(data)
-        self.s.sendmail(os.getenv("SMTP_EXCHANGE_USER_LOGIN"), email, msg.as_string())
-        self.s.quit()
+    # @rpc
+    # def send_mail(self, email):
+    #     encoded_jwt = jwt.encode({'email': email}, 'secret', algorithm='HS256').decode("UTF-8")
+    #     data = f"http://localhost:9090/forget/?new={encoded_jwt}"
+    #     # s=smtp()
+    #     # s.send_mail(email,data)
+    #     msg = MIMEText(data)
+    #     self.s.sendmail(os.getenv("SMTP_EXCHANGE_USER_LOGIN"), email, msg.as_string())
+    #     self.s.quit()
 
     @rpc
     def put_cache(self, data):
