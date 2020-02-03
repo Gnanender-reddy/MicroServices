@@ -1,6 +1,11 @@
 """
-http GET and POST extension
+
+@Author : P.Gnanender Reddy
+@Since : jan'2020
+@:keyword:AMQP
+@Description: This is gateway service which is used to get a request from web server.
 """
+
 import json
 import jwt
 from nameko.standalone.rpc import ClusterRpcProxy
@@ -45,17 +50,13 @@ class HttpService(object):
     @is_authenticated
     def do_create(self, request):
 
-        print(request.headers['token'],'---->sedr')
-        # print(dir(request))
-        # print(request.path)
-
+        print(request.headers['token'])
         request_data = json.loads(request.get_data(as_text=True))
         token = request.headers['token']
         payload = jwt.decode(token, 'secret', algorithms='HS256')
         id = str(payload['id'])
         request_data['user_id'] = id
-        print(request_data)
-        # print(request_data, "request dat1111111111---------------")
+
         with ClusterRpcProxy(config) as cluster_rpc:
             response = cluster_rpc.note_service.create_note(request_data)
             return json.dumps(response)

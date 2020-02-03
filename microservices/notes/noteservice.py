@@ -1,5 +1,11 @@
-import sys
+"""
+@Author : P.Gnanender Reddy
+@Since : jan'2020.
+@:keyword:rpc.
+@Description: This class provides services for notes creation, deletion, update and reading data.
+"""
 
+import sys
 from nameko.rpc import rpc
 sys.path.insert(0,'/home/admin1/PycharmProjects/Microservices')
 

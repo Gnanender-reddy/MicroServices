@@ -1,13 +1,13 @@
-
-
+"""
+@Author : P.Gnanender Reddy
+@Since : jan'2020.
+@:keyword:rpc.
+@Description: This class provides services for user login, registration.
+"""
 import sys
-
 sys.path.insert(0,'/home/admin1/PycharmProjects/Microservices')
 from microservices.users.models.datamanagement import Query
-
-
 import jwt
-
 from nameko.rpc import rpc
 
 class User(object):

@@ -1,3 +1,10 @@
+"""
+@Author : P.Gnanender Reddy
+@Since : jan'2020.
+@:keyword:rpc.
+@Description: This class provides functions for database operations.
+"""
+
 import os
 import re
 from email.mime.text import MIMEText

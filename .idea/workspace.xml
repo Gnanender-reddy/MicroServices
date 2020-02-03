@@ -4,12 +4,8 @@
     <list default="true" id="d313b991-072f-46b8-a06d-eac0240847eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/auth/login_authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/auth/login_authentication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/dump.rdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/users/config/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/users/config/connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/users/models/datamanagement.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/users/models/datamanagement.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/users/services/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/users/userservice.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/users/userservice.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/users/vendor/smtp.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/users/vendor/smtp.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
